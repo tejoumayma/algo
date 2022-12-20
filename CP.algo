@@ -1,0 +1,22 @@
+ALGORITHM algorithm_name
+VAR
+    nmbrC,nmbrV,nmbrW : INTEGER;
+    c : CHAR;
+BEGIN
+    nmbrC :=0;
+    nmbrV:=0;
+    nmbrW:=0;
+    REPEAT
+     Read (c)
+       nmbrC:=nmbrC+1; 
+       IF (c=' ' OR c='.') THEN
+        nmbrW:=nmbrW+1;
+       END_IF
+       IF (c='a' OR c='e' OR c='y' OR c='i' OR c='o' OR c='u') THEN
+        nmbrV:=nmbrV+1;
+       END_IF
+    UNTIL (c='.')
+    Write("length of sentence:", nmbrC);
+    Write("number of words:", nmbrW);
+    Write("number of vowels:", nmbrV);
+END

@@ -1,0 +1,22 @@
+ALGORITHM primer
+VAR
+    i ,n:INTEGER;
+    isPrime:BOOLEAN;
+BEGIN
+    isPrime:= TRUE;
+    REPEAT
+        Write("Enter a number not 1 and not 0");
+        Read (n);
+    UNTIL (n<>1 OR n<>0)
+    FOR i FROM 2 TO n-1 STEP 1  DO
+        IF (n % i = 0) THEN
+            isPrime := FALSE;
+            BREAK;
+        END_IF
+    END_FOR
+    IF (isPrime=TRUE) THEN
+        Write("Prime")
+    ELSE
+        Write("Not Prime")
+    END_IF
+END
