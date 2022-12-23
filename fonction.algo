@@ -1,0 +1,43 @@
+FUNCTION dot_product( v1,v2: ARRAY_OF Float) :FLOAT
+VAR
+    i:INTEGER;
+    ps:Float:=0;
+BEGIN
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO  
+        
+        ps:=ps+v1[i]*v2[i];
+    END_FOR
+    RETURN ps ;
+END  
+PROCEDURE saisie (VAR M:ARRAY_OF FLOAT, n,m:INTEGER)
+VAR
+    i,j:INTEGER; 
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1 DO
+        FOR j FROM 0 TO m-1 STEP 1  DO
+            Read (M[i][j]);
+        END_FOR
+    END_FOR
+END
+ALGORITHM check_point_3
+VAR 
+    res:FLOAT;
+    M: ARRAY_OF FLOAT [100][100];
+    n,m:INTEGER;   
+BEGIN   
+    REPEAT
+        Write("give me an Integer between 2 and 100");
+        Read (n);
+    UNTIL (n>1 AND n<=100)
+    REPEAT
+        Write("give me an Integer between 2 and 100");
+        Read (m);
+    UNTIL (m>1 AND m<=100)
+    saisie(M,n,m);
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        res:= dot_product (M[i],M[i+1]);
+        IF (res =0) THEN
+            Write(M[i], " and ",M[i+1]," are orthogonal.");
+        END_IF
+    END_FOR
+END
