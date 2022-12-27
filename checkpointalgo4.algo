@@ -1,0 +1,16 @@
+ALGORITHM checkpoint4
+VAR
+    i,j,key:INTEGER;
+    arr: ARRAY_OF INTEGER[50];
+BEGIN
+    arr:={9,5,1,4,3}
+    FOR i FROM 1 TO length-1 STEP 1  DO
+        key:= arr[i];
+        j:=i-1;
+        WHILE (j>=0 and key<arr[j]) DO
+            arr[j+1]:=arr[j];
+            j:=j-1;
+        END_WHILE
+        arr[j+1]:=key;
+    END_FOR
+END
